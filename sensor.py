@@ -148,7 +148,7 @@ class MeaterProbeTemperature(MeaterSensor):
         if TemperatureMeasurement.Internal == self.temperature_reading_type:
             return device.internal_temperature
 
-        elif TemperatureMeasurement.Ambient == self.temperature_reading_type:
+        if TemperatureMeasurement.Ambient == self.temperature_reading_type:
             return device.ambient_temperature
 
         if device.cook is None:
@@ -157,7 +157,7 @@ class MeaterProbeTemperature(MeaterSensor):
         if TemperatureMeasurement.Target == self.temperature_reading_type:
             return round(device.cook.target_temperature)
 
-        elif TemperatureMeasurement.Peak == self.temperature_reading_type:
+        if TemperatureMeasurement.Peak == self.temperature_reading_type:
             return device.cook.peak_temperature
 
     @property
