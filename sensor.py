@@ -242,6 +242,7 @@ class MeaterCookTime(MeaterSensor):
                 return None
 
         else:
+            # API returns -1 when cook time remaining is unknown
             if device.cook.time_remaining < 0:
                 return None
             else:
